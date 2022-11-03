@@ -4,7 +4,7 @@
 import { providers } from "near-api-js";
 
 // wallet selector UI
-import "@near-wallet-selector/modal-ui/styles.css";
+
 import { setupModal } from "@near-wallet-selector/modal-ui";
 
 // wallet selector options
@@ -64,7 +64,8 @@ export class Wallet {
 
     if (isSignedIn) {
       this.wallet = await this.walletSelector.wallet();
-      this.accountId = this.walletSelector.store.getState().accounts[0].accountId;
+      this.accountId =
+        this.walletSelector.store.getState().accounts[0].accountId;
     }
 
     return isSignedIn;

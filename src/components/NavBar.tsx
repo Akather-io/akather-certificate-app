@@ -8,7 +8,7 @@ import LoadingSvg from "./LoadingSvg";
 const NavBar = () => {
   const { isSignedIn, wallet } = useGlobalContext();
   return (
-    <nav className="shadow-md shadow-sky-300/50 w-full bg-gradient-to-r from-cyan-100 to-sky-400">
+    <nav className="shadow-md shadow-sky-300/50 w-full bg-gradient-to-r from-cyan-100 to-sky-400 z-10">
       <div className="lg:container mx-auto flex items-center justify-between px-2">
         <div className="w-48 h-16 p-2 relative">
           <Image
@@ -25,18 +25,20 @@ const NavBar = () => {
         </div>
         <div>
           <ul className="flex gap-10 text-lg text-white/90 font-bold items-center">
-            <li className="hover:text-sky-700 transition-colors duration-300">
+            <li className="hover:text-indigo-500 transition-colors duration-300">
               <Link href={"/about-us"}>About Us</Link>
             </li>
-            <li className="hover:text-sky-700 transition-colors duration-300">
+            <li className="hover:text-indigo-500 transition-colors duration-300">
               <Link href={"/courses"}>Courses</Link>
             </li>
 
             {typeof isSignedIn === "undefined" ? (
               <LoadingSvg />
             ) : !isSignedIn ? (
-              <li className="hover:text-sky-700 transition-colors duration-300">
-                <button onClick={wallet.signIn}>Login with NEAR</button>
+              <li className="bg-black transition-colors duration-300 rounded-md px-3 py-1 hover:text-indigo-50">
+                <button onClick={wallet.signIn} className="outline-none">
+                  Login with NEAR
+                </button>
               </li>
             ) : (
               <li>
@@ -48,12 +50,15 @@ const NavBar = () => {
                   </Popover.Button>
 
                   <Popover.Panel className="absolute right-0 z-10 bg-white/90 rounded-md p-2">
-                    <div className="flex flex-col text-indigo-500 w-36 gap-2">
-                      <a href="/analytics">Analytics</a>
-                      <a href="/engagement">Engagement</a>
-                      <a href="/security">Security</a>
-                      <a href="/integrations">Integrations</a>
-                    </div>
+                    <ul className="flex flex-col text-indigo-500 w-36 gap-2 cursor-pointer">
+                      <li className="hover:bg-gray-50 p-1">Profile</li>
+                      <li
+                        className="hover:bg-gray-50 p-1 border-t-2 border-t-gray-100 text-red-500"
+                        onClick={wallet.signOut}
+                      >
+                        Logout
+                      </li>
+                    </ul>
                   </Popover.Panel>
                 </Popover>
               </li>

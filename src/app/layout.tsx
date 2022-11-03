@@ -1,6 +1,7 @@
 import NavBar from "../components/NavBar";
 import GlobalContextProvider from "../GlobalContext";
 import "./globals.css";
+import "@near-wallet-selector/modal-ui/styles.css";
 
 export default function RootLayout({
   children,

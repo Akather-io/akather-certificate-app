@@ -1,5 +1,12 @@
 "use client";
-import { createContext, PropsWithChildren, useContext, useEffect, useMemo, useState } from "react";
+import {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { Wallet } from "./configs/near-wallet";
 import { isClient } from "./utils/next";
 
@@ -8,7 +15,9 @@ type GlobalContextState = {
   isSignedIn: boolean | undefined;
 };
 
-const GlobalContext = createContext<GlobalContextState>({} as GlobalContextState);
+const GlobalContext = createContext<GlobalContextState>(
+  {} as GlobalContextState
+);
 
 export const useGlobalContext = () => useContext(GlobalContext);
 
@@ -16,7 +25,7 @@ const GlobalContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const wallet = useMemo(
     () =>
       new Wallet({
-        createAccessKeyFor: "test-nft1.leopham.testnet",
+        createAccessKeyFor: "akather1.leopham.testnet",
       }),
     []
   );
@@ -32,7 +41,11 @@ const GlobalContextProvider: React.FC<PropsWithChildren> = ({ children }) => {
     return { wallet, isSignedIn };
   }, [wallet, isSignedIn]);
 
-  return <GlobalContext.Provider value={contextValue}>{children}</GlobalContext.Provider>;
+  return (
+    <GlobalContext.Provider value={contextValue}>
+      {children}
+    </GlobalContext.Provider>
+  );
 };
 
 export default GlobalContextProvider;
