@@ -51,7 +51,9 @@ const NavBar = () => {
 
                   <Popover.Panel className="absolute right-0 z-10 bg-white/90 rounded-md p-2">
                     <ul className="flex flex-col text-indigo-500 w-36 gap-2 cursor-pointer">
-                      <li className="hover:bg-gray-50 p-1">Profile</li>
+                      <li className="hover:bg-gray-50 p-1">
+                        <Link href={"/profile"}>Profile</Link>
+                      </li>
                       <li
                         className="hover:bg-gray-50 p-1 border-t-2 border-t-gray-100 text-red-500"
                         onClick={wallet.signOut}
