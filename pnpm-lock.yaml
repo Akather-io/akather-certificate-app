@@ -10,6 +10,7 @@ specifiers:
   '@types/react': 18.0.24
   '@types/react-dom': 18.0.8
   autoprefixer: ^10.4.13
+  clsx: ^1.2.1
   encoding: ^0.1.13
   eslint: 8.26.0
   eslint-config-next: 13.0.0
@@ -28,6 +29,7 @@ dependencies:
   '@near-wallet-selector/ledger': 7.1.0_near-api-js@1.1.0
   '@near-wallet-selector/modal-ui': 7.1.0_near-api-js@1.1.0
   '@near-wallet-selector/my-near-wallet': 7.1.0_near-api-js@1.1.0
+  clsx: 1.2.1
   near-api-js: 1.1.0_encoding@0.1.13
   next: 13.0.0_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
@@ -711,6 +713,11 @@ packages:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 6.2.0
+    dev: false
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
     dev: false
 
   /color-convert/2.0.1:
