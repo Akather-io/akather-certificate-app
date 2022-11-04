@@ -50,9 +50,15 @@ const NavBar = () => {
                   </Popover.Button>
 
                   <Popover.Panel className="absolute right-0 z-10 bg-white/90 rounded-md p-2">
-                    <ul className="flex flex-col text-indigo-500 w-36 gap-2 cursor-pointer">
-                      <li className="hover:bg-gray-50 p-1">
+                    <ul className="flex flex-col text-indigo-500 min-w-fit gap-2 cursor-pointer">
+                      <li className="px-3 py-2 bg-black text-white text-center rounded-md">
+                        {wallet.accountId}
+                      </li>
+                      <li className="hover:bg-gray-50 px-3 py-2">
                         <Link href={"/profile"}>Profile</Link>
+                      </li>
+                      <li className="hover:bg-gray-50 px-3 py-2">
+                        <Link href={"/my-certificate"}>Certificates</Link>
                       </li>
                       <li
                         className="hover:bg-gray-50 p-1 border-t-2 border-t-gray-100 text-red-500"
